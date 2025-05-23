@@ -1,0 +1,70 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.125rem;
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  color: white;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+}
+
+// Variants
+.primary {
+  background-color: #3b82f6;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+}
+
+/* 
+  To add variants, create new classes like:
+  .secondary {
+    background-color: #e5e7eb;
+    color: #374151;
+    
+    &:hover:not(:disabled) {
+      background-color: #d1d5db;
+    }
+  }
+*/
+
+// Sizes
+.md {
+  padding: 0.625rem 1rem;
+  font-size: 1rem;
+}
+
+/* 
+  To add sizes, create new classes like:
+  .sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  .lg {
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+  }
+*/
