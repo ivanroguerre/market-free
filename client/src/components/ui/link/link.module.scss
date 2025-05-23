@@ -1,0 +1,13 @@
+.link {
+  display: inline-block;
+  font-size: 14px;
+  list-style: none;
+  text-decoration: none;
+  color: #3483fa;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #2968c8;
+  }
+}
