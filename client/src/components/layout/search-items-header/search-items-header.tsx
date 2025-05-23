@@ -2,12 +2,16 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { Header } from "@/components/layout";
-import { Input } from "@/components/ui";
+import { Input } from "@/components/form";
 import styles from "./search-items-header.module.scss";
 
 export function SearchItemsHeader() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
   const [placeholder, setPlaceholder] = useState(
     "Buscar productos, marcas y más..."
   );
@@ -29,13 +33,25 @@ export function SearchItemsHeader() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/items?q=${encodeURIComponent(searchTerm.trim())}`);
+  };
+
   return (
     <Header className={styles.header}>
       <div className={styles.container}>
         <Image src="/images/logo.png" alt="Logo" width={44} height={32} />
-        <div className={styles.inputContainer}>
-          <Input className={styles.searchInput} placeholder={placeholder} />
-          <button className={styles.searchButton} type="button">
+        <form className={styles.inputContainer} onSubmit={handleSubmit}>
+          <Input 
+            className={styles.searchInput} 
+            placeholder={placeholder} 
+            name="search"
+            type="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className={styles.searchButton} type="submit">
             <svg
               width="20"
               height="20"
@@ -59,7 +75,7 @@ export function SearchItemsHeader() {
               />
             </svg>
           </button>
-        </div>
+        </form>
       </div>
     </Header>
   );
