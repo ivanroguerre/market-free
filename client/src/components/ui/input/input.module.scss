@@ -1,0 +1,29 @@
+.input {
+  border-collapse: collapse;
+  -webkit-font-smoothing: antialiased;
+  color: #333;
+  font-size: 1rem;
+  margin: 0;
+  font-family: inherit;
+  border-radius: 0.125rem;
+  background-color: #fff;
+  display: flex;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.625rem 0.9375rem;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0);
+  border-width: 1.5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
