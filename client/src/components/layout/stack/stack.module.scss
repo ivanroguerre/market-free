@@ -1,0 +1,8 @@
+.stack {
+  display: grid;
+  width: 100%;
+  gap: 0;
+  grid-template-columns: repeat(1, minmax(240px, 1fr));
+  flex-direction: column;
+  background-color: #fff;
+}

@@ -1,0 +1,5 @@
+.stackItem {
+  &:not(:last-child) {
+    border-bottom: thin solid #eee;
+  }
+}
