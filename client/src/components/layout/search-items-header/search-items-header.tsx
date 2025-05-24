@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { Header } from "@/components/layout";
+import { Container, Header } from "@/components/layout";
 import { Input } from "@/components/form";
 import styles from "./search-items-header.module.scss";
 
@@ -40,7 +40,7 @@ export function SearchItemsHeader() {
 
   return (
     <Header className={styles.header}>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <Image src="/images/logo.png" alt="Logo" width={44} height={32} />
         <form className={styles.inputContainer} onSubmit={handleSubmit}>
           <Input 
@@ -76,7 +76,7 @@ export function SearchItemsHeader() {
             </svg>
           </button>
         </form>
-      </div>
+      </Container>
     </Header>
   );
 }
