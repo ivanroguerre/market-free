@@ -16,7 +16,7 @@ export default async function ItemsPage({
   const items = await marketFreeClient.searchProductsByName(query);
 
   // Extract categories from the first item if available
-  const categories = items[0]?.categories.map((cat) => cat.name) || [];
+  const categories = items[0]?.categories || [];
 
   return (
     <div className={styles.page}>

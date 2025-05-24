@@ -6,7 +6,7 @@ import styles from "./page.module.scss";
 export default async function ItemPage({ params }: { params: { id: string } }) {
   const { id } = await params;
   const itemDetail = await marketFreeClient.getProductById(id);
-  const categories = itemDetail.categories.map((cat) => cat.name);
+  const categories = itemDetail.categories || [];
 
   return (
     <div className={styles.page}>
