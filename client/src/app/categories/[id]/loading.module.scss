@@ -1,0 +1,40 @@
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 4px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.categoryNameSkeleton {
+  height: 32px;
+  width: 192px;
+}
+
+.itemSkeleton {
+  padding: 16px;
+}
+
+.imageSkeleton {
+  height: 192px;
+  margin-bottom: 16px;
+}
+
+.titleSkeleton {
+  height: 24px;
+  width: 75%;
+  margin-bottom: 8px;
+}
+
+.descriptionSkeleton {
+  height: 16px;
+  width: 50%;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
