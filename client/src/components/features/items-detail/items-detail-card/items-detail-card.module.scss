@@ -5,7 +5,7 @@
   border: 1px solid #f5f5f5;
   border-radius: 6px;
   box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-  padding: 12px 8px;
+  padding: 24px;
   width: 100%;
   min-height: 90%;
 
@@ -15,7 +15,8 @@
   grid-template-areas:
     "image info"
     "desc desc";
-  gap: 24px;
+  column-gap: 300px;
+  row-gap: 100px;
 
   // Item 1: image
   > :nth-child(1) {
@@ -33,7 +34,7 @@
   @media (max-width: 768px) {
     // Mobile: 3 rows, 1 column
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas:
       "info"
       "image"
