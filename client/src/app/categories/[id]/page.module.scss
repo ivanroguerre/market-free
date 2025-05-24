@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding-top: 16px;
+}
+
+.categoryName {
+  line-height: 1.35;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 24px;
+  font-weight: 600;
+}

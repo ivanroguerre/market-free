@@ -3,16 +3,15 @@ import type { Item } from "@/services";
 import styles from "./items-breadcrumb.module.scss";
 
 interface ItemsBreadcrumbProps {
-  items: Item["categories"];
+  categories: Item["categories"];
 }
 
-export function ItemsBreadcrumb({ items }: ItemsBreadcrumbProps) {
+export function ItemsBreadcrumb({ categories }: ItemsBreadcrumbProps) {
   return (
     <Breadcrumb>
-      {items.map((item) => (
-        <BreadcrumbItem key={item.id} className={styles.breadcrumbItem}>
-          {/* TODO: add category page and redirect to it */}
-          <Link href={`#`}>{item.name}</Link>
+      {categories.map((category) => (
+        <BreadcrumbItem key={category.id} className={styles.breadcrumbItem}>
+          <Link href={`/categories/${category.id}`}>{category.name}</Link>
         </BreadcrumbItem>
       ))}
     </Breadcrumb>

@@ -1,28 +1,22 @@
-import {
-  ItemsBreadcrumb,
-  ItemsListItem,
-} from "@/components/features/items-list";
+import { ItemsListItem } from "@/components/features/items-list";
 import { Stack, StackItem } from "@/components/layout";
 import { marketFreeClient } from "@/services";
 import Link from "next/link";
 import styles from "./page.module.scss";
 
-export default async function ItemsPage({
-  searchParams,
+export default async function CategoriesPage({
+  params,
 }: {
-  searchParams: { q?: string };
+  params: { id: string };
 }) {
-  const { q: query = "" } = await searchParams;
-  const items = await marketFreeClient.searchProductsByName(query);
+  const { id } = await params;
+  const items = await marketFreeClient.searchProductsByCategory(id);
+  const categoryName = items[0]?.categories?.[0]?.name || "";
 
   // TODO: add empty state and skeleton loader
-
-  // Extract categories from the first item if available
-  const categories = items[0]?.categories || [];
-
   return (
     <div className={styles.page}>
-      <ItemsBreadcrumb categories={categories} />
+      <h1 className={styles.categoryName}>Categoría {categoryName}</h1>
       <Stack>
         {items.map((item, index) => (
           <StackItem key={item.id}>

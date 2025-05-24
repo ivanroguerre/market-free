@@ -8,9 +8,11 @@ export default async function ItemPage({ params }: { params: { id: string } }) {
   const itemDetail = await marketFreeClient.getProductById(id);
   const categories = itemDetail.categories || [];
 
+  // TODO: add empty state and skeleton loader
+
   return (
     <div className={styles.page}>
-      <ItemsBreadcrumb items={categories} />
+      <ItemsBreadcrumb categories={categories} />
       <ItemsDetail itemDetail={itemDetail} />
     </div>
   );
