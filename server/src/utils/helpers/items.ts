@@ -26,6 +26,7 @@ export function transformToItem(
       name: category.name,
     })),
     images: product.images,
+    freeShipping: Math.random() < 0.5,
   };
 }
 
@@ -43,5 +44,8 @@ export function transformToItemDetail(
       name: category.name,
     })),
     images: product.images,
+    freeShipping: Math.random() < 0.5,
+    soldQuantity: Math.floor(Math.random() * 1000),
+    condition: Math.random() < 0.5 ? "new" : "used",
   };
 }

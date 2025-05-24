@@ -7,6 +7,7 @@ export interface Item {
     name: string;
   }[];
   images: string[];
+  freeShipping: boolean;
 }
 
 export interface ItemDetail {
@@ -19,4 +20,7 @@ export interface ItemDetail {
     name: string;
   }[];
   images: string[];
+  freeShipping: boolean;
+  soldQuantity: number;
+  condition: "new" | "used";
 }

@@ -35,8 +35,7 @@ export function ItemsListItem({ item, priority }: ItemsListItemProps) {
       <ItemsListCardContent className={styles.itemsListCardContent}>
         <span className={styles.price}>
           {formattedPrice}
-          {/* TODO: add free shipping in the API */}
-          {/* {item.free_shipping && (
+          {item.freeShipping && (
             <span className={styles.freeShippingIcon} title="Envío gratis">
               <svg
                 className={styles.carIcon}
@@ -53,7 +52,7 @@ export function ItemsListItem({ item, priority }: ItemsListItemProps) {
                 />
               </svg>
             </span>
-          )} */}
+          )}
         </span>
         <h3 className={styles.title}>{item.title}</h3>
       </ItemsListCardContent>

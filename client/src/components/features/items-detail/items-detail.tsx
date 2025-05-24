@@ -22,11 +22,10 @@ export function ItemsDetail({ itemDetail }: ItemsDetailProps) {
     maximumFractionDigits: 0,
   }).format(itemDetail.price);
 
-  // TODO: add condition and sold_quantity to the API
-  // const conditionText = item.condition === "new" ? "Nuevo" : "Usado";
-  // const soldText = `${item.sold_quantity} ${
-  //   item.sold_quantity === 1 ? "vendido" : "vendidos"
-  // }`;
+  const conditionText = itemDetail.condition === "new" ? "Nuevo" : "Usado";
+  const soldText = `${itemDetail.soldQuantity} ${
+    itemDetail.soldQuantity === 1 ? "vendido" : "vendidos"
+  }`;
 
   return (
     <ItemsDetailCard>
@@ -35,15 +34,15 @@ export function ItemsDetail({ itemDetail }: ItemsDetailProps) {
           src={itemDetail.images[0]}
           alt={itemDetail.title}
           fill
-            sizes="(max-width: 768px) 100%, 196px"
+          sizes="(max-width: 768px) 100%, 196px"
           className={styles.image}
         />
       </ItemsDetailCardImage>
       <ItemsDetailCardInfo className={styles.itemsDetailCardInfo}>
         <div>
-          {/* <span className={styles.conditionSold}>
+          <span className={styles.conditionSold}>
             {conditionText} - {soldText}
-          </span> */}
+          </span>
           <h1 className={styles.title}>{itemDetail.title}</h1>
         </div>
         <span className={styles.price}>{formattedPrice}</span>
