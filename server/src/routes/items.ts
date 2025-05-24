@@ -1,8 +1,19 @@
 import { Router } from "express";
-import { getItems } from "@/controllers/items";
+import {
+  searchProductsByName,
+  searchProductsByCategory,
+  searchProductsById,
+} from "@/controllers/items";
 
 const router = Router();
 
-router.get("/", getItems); // Corresponds to /api/items?q=:query
+// Search products by name
+router.get("/", searchProductsByName); // GET /api/items?q=:query&offset=:offset&limit=:limit
+
+// Search products by category
+router.get("/category", searchProductsByCategory); // GET /api/items/category?categoryId=:id&offset=:offset&limit=:limit
+
+// Get product by ID
+router.get("/:id", searchProductsById); // GET /api/items/:id
 
 export default router;

@@ -1,3 +1,4 @@
+import { ApiError } from "@/services/api";
 import type { Product } from "@/services/api";
 
 export class PlatziFakeStoreClient {
@@ -5,6 +6,18 @@ export class PlatziFakeStoreClient {
 
   constructor(baseUrl: string) {
     this.baseUrl = baseUrl;
+  }
+
+  private async handleResponse<T>(response: Response): Promise<T> {
+    const data = await response.json();
+    if (!response.ok) {
+      throw new ApiError(
+        response.status,
+        data,
+        data.message || "Ocurrió un error al hacer la petición a la API"
+      );
+    }
+    return data;
   }
 
   async searchProductsByName(
@@ -15,8 +28,7 @@ export class PlatziFakeStoreClient {
     const response = await fetch(
       `${this.baseUrl}/api/v1/products?title=${title}&offset=${offset}&limit=${limit}`
     );
-    const data = await response.json();
-    return data;
+    return this.handleResponse<Product[]>(response);
   }
 
   async searchProductsByCategory(
@@ -27,13 +39,11 @@ export class PlatziFakeStoreClient {
     const response = await fetch(
       `${this.baseUrl}/api/v1/products?categoryId=${categoryId}&offset=${offset}&limit=${limit}`
     );
-    const data = await response.json();
-    return data;
+    return this.handleResponse<Product[]>(response);
   }
 
   async searchProductsById(id: string): Promise<Product> {
     const response = await fetch(`${this.baseUrl}/api/v1/products/${id}`);
-    const data = await response.json();
-    return data;
+    return this.handleResponse<Product>(response);
   }
 }
