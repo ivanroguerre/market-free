@@ -41,7 +41,7 @@ export function SearchItemsHeader() {
   return (
     <Header className={styles.header}>
       <Container className={styles.container}>
-        <Image src="/images/logo.png" alt="Logo" width={44} height={32} />
+        <Image src="/images/logo.png" alt="Logo" width={44} height={32} priority />
         <form className={styles.inputContainer} onSubmit={handleSubmit}>
           <Input 
             className={styles.searchInput} 
