@@ -1,0 +1,29 @@
+.emptyStateContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  height: 100%;
+  gap: 16px;
+}
+
+.emptyStateTitle {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.emptyStateList {
+  box-sizing: border-box;
+  padding-left: 1em;
+}
+
+.emptyStateItem {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.9);
+  line-height: 1.231;
+  list-style-position: outside;
+  list-style-type: disc;
+}

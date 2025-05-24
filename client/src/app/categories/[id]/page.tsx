@@ -1,3 +1,4 @@
+import { CategoriesEmptyState } from "@/components/features/categories";
 import { ItemsListItem } from "@/components/features/items-list";
 import { Stack, StackItem } from "@/components/layout";
 import { marketFreeClient } from "@/services";
@@ -16,17 +17,23 @@ export default async function CategoriesPage({
   // TODO: add empty state and skeleton loader
   return (
     <div className={styles.page}>
-      <h1 className={styles.categoryName}>Categoría {categoryName}</h1>
-      <Stack>
-        {items.map((item, index) => (
-          <StackItem key={item.id}>
-            <Link href={`/items/${item.id}`}>
-              {/* This is a heuristic to prioritize the first 4 items as those will probably be the first visible items */}
-              <ItemsListItem item={item} priority={index < 4} />
-            </Link>
-          </StackItem>
-        ))}
-      </Stack>
+      {items.length > 0 ? (
+        <>
+          <h1 className={styles.categoryName}>Categoría {categoryName}</h1>
+          <Stack>
+            {items.map((item, index) => (
+              <StackItem key={item.id}>
+                <Link href={`/items/${item.id}`}>
+                  {/* This is a heuristic to prioritize the first 4 items as those will probably be the first visible items */}
+                  <ItemsListItem item={item} priority={index < 4} />
+                </Link>
+              </StackItem>
+            ))}
+          </Stack>
+        </>
+      ) : (
+        <CategoriesEmptyState />
+      )}
     </div>
   );
 }
