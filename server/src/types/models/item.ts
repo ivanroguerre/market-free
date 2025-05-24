@@ -2,29 +2,6 @@ export interface Item {
   id: number;
   title: string;
   price: number;
-  category: {
-    id: number;
-    name: string;
-  };
-  images: string[];
-}
-
-export interface ItemDetail {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category?: {
-    id: number;
-    name: string;
-  };
-  images: string[];
-}
-
-export interface TransformedItem {
-  id: number;
-  title: string;
-  price: number;
   categories: {
     id: number;
     name: string;
@@ -32,7 +9,7 @@ export interface TransformedItem {
   images: string[];
 }
 
-export interface TransformedItemDetail {
+export interface ItemDetail {
   id: number;
   title: string;
   price: number;
