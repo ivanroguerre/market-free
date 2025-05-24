@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -41,11 +42,19 @@ export function SearchItemsHeader() {
   return (
     <Header className={styles.header}>
       <Container className={styles.container}>
-        <Image src="/images/logo.png" alt="Logo" width={44} height={32} priority />
+        <Link href="/">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={44}
+            height={32}
+            priority
+          />
+        </Link>
         <form className={styles.inputContainer} onSubmit={handleSubmit}>
-          <Input 
-            className={styles.searchInput} 
-            placeholder={placeholder} 
+          <Input
+            className={styles.searchInput}
+            placeholder={placeholder}
             name="search"
             type="search"
             value={searchTerm}
