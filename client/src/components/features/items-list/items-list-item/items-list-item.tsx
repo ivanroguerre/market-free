@@ -21,7 +21,7 @@ export function ItemsListItem({ item, priority }: ItemsListItemProps) {
   }).format(item.price);
 
   return (
-    <ItemsListCard>
+    <ItemsListCard data-testid="items-list-item">
       <ItemsListCardImage>
         <Image
           src={item.images[0]}

@@ -28,7 +28,7 @@ export function ItemsDetail({ itemDetail }: ItemsDetailProps) {
   }`;
 
   return (
-    <ItemsDetailCard>
+    <ItemsDetailCard role="article">
       <ItemsDetailCardImage>
         <Image
           src={itemDetail.images[0]}
@@ -45,10 +45,10 @@ export function ItemsDetail({ itemDetail }: ItemsDetailProps) {
           </span>
           <h1 className={styles.title}>{itemDetail.title}</h1>
         </div>
-        <span className={styles.price}>{formattedPrice}</span>
+        <span className={styles.price} role="text">{formattedPrice}</span>
         <Button className="buy-button">Comprar</Button>
       </ItemsDetailCardInfo>
-      <ItemsDetailCardDescription className={styles.itemsDetailCardDescription}>
+      <ItemsDetailCardDescription className={styles.itemsDetailCardDescription} role="contentinfo">
         <h2 className={styles.descriptionHeading}>Descripción del producto</h2>
         <p>{itemDetail.description}</p>
       </ItemsDetailCardDescription>

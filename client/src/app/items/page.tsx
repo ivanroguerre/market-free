@@ -26,9 +26,9 @@ export default async function ItemsPage({
         {items.length > 0 ? (
           <>
             <ItemsBreadcrumb categories={categories} />
-            <Stack>
+            <Stack role="list">
               {items.map((item, index) => (
-                <StackItem key={item.id}>
+                <StackItem key={item.id} role="listitem">
                   <Link href={`/items/${item.id}`}>
                     {/* This is a heuristic to prioritize the first 4 items as those will probably be the first visible items */}
                     <ItemsListItem item={item} priority={index < 4} />
