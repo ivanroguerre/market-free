@@ -1,0 +1,49 @@
+.homePageContent {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f5f5f5;
+  border-radius: 6px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 100%;
+  min-height: 90%;
+}
+
+.title {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.instructions {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+
+  h2 {
+    color: #333;
+    margin-bottom: 2rem;
+  }
+}
+
+.instructionBlock {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  h3 {
+    color: #3483fa;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
