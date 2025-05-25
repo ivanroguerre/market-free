@@ -69,6 +69,13 @@ npm test        # Ejecutar pruebas unitarias
 ```
 Las pruebas unitarias verifican el funcionamiento individual de componentes y funciones. Pueden ejecutarse en cualquier momento sin necesidad de tener la aplicación en ejecución.
 
+Se han implementado pruebas unitarias utilizando Jest para los siguientes componentes:
+
+1. **Componentes de UI Básicos**:
+   - `SearchItemsHeader`.
+2. **Unidades de código**:
+   - Cliente API que consume la API externa.
+
 #### Pruebas E2E (End-to-End)
 ```bash
 cd client
@@ -77,6 +84,18 @@ npm run cypress:open  # Ejecutar pruebas E2E
 Las pruebas E2E simulan el comportamiento real del usuario en la aplicación. **Importante**: Para ejecutar las pruebas E2E, tanto el frontend como el backend deben estar en ejecución:
 - Frontend en `http://localhost:3000`
 - Backend en `http://localhost:3001`
+
+Se han implementado pruebas E2E utilizando Cypress en dos áreas principales:
+
+1. **Pruebas de Ejemplo**:
+   - Directorio `e2e-example/` con pruebas de ejemplo para demostrar la configuración
+
+2. **Pruebas de Funcionalidad Principal**:
+   - Directorio `items/` con pruebas que cubren:
+     - Búsqueda de productos
+     - Visualización de detalles de productos
+     - Navegación por categorías
+     - Comportamiento de la interfaz de usuario
 
 ## 📚 Documentación de la API
 
@@ -128,6 +147,9 @@ http://localhost:3001/api-docs
   - ⚠️ Consideraciones: Tiempo adicional de desarrollo para componentes skeleton
 
 ### Arquitectura Backend (Express)
+
+#### Uso de API real
+Se hacen consultas a una API mock real, no se mantienen los mocks quemados en el código.
 
 #### Documentación de API
 - **Integración de Swagger**
