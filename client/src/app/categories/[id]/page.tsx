@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
 import {
   CategoriesEmptyState,
@@ -8,6 +9,28 @@ import { ItemsListItem } from "@/components/features/items-list";
 import { Stack, StackItem } from "@/components/layout";
 import { marketFreeClient } from "@/services";
 import styles from "./page.module.scss";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const { id } = await params;
+
+  try {
+    const items = await marketFreeClient.searchProductsByCategory(id);
+    const categoryName = items[0]?.categories?.[0]?.name || "";
+    return {
+      title: `Market Free - Categoría ${categoryName}`,
+      description: `${items.length} productos encontrados en la categoría ${categoryName}`,
+    };
+  } catch {
+    return {
+      title: `Market Free - Categoría`,
+      description: "Categoría no encontrada",
+    };
+  }
+}
 
 export default async function CategoriesPage({
   params,

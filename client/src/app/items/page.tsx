@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 
 import {
   ItemsBreadcrumb,
@@ -9,6 +10,27 @@ import {
 import { Stack, StackItem } from "@/components/layout";
 import { marketFreeClient } from "@/services";
 import styles from "./page.module.scss";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { q?: string };
+}): Promise<Metadata> {
+  const { q: query = "" } = await searchParams;
+
+  try {
+    const items = await marketFreeClient.searchProductsByName(query);
+    return {
+      title: `Market Free - Productos`,
+      description: `${items.length} productos encontrados para "${query}"`,
+    };
+  } catch {
+    return {
+      title: `Market Free - Productos`,
+      description: "Sin resultados",
+    };
+  }
+}
 
 export default async function ItemsPage({
   searchParams,
