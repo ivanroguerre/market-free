@@ -59,6 +59,7 @@ export function SearchItemsHeader() {
             type="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            aria-label="Buscar productos"
           />
           <button className={styles.searchButton} type="submit">
             <svg
